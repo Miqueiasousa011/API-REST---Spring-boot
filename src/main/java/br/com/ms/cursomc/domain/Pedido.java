@@ -18,4 +18,8 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name = ("enderecoEntrega_id"))
     private Endereco enderecoDeEntrega;
+
+    @ManyToOne
+    @JoinColumn(name = ("cliente_id"))
+    private Cliente cliente;
 }
