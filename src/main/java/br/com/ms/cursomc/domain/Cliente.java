@@ -5,7 +5,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,4 +25,7 @@ public class Cliente implements Serializable {
     @ElementCollection
     @CollectionTable(name = ("TELEFONE"))
     private Set<String> telefone = new HashSet<>();
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Endereco> enderecos = new ArrayList<>();
 }
