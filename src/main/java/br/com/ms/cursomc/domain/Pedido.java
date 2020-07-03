@@ -22,4 +22,7 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name = ("cliente_id"))
     private Cliente cliente;
+
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private Pagamento pagamento;
 }
