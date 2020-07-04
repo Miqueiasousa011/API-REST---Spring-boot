@@ -16,10 +16,12 @@ public enum TipoCliente {
     public static TipoCliente toEnum(Integer codigo) {
         if (codigo == null)
             return null;
-        for (TipoCliente tipoCliente : TipoCliente.values()) {
+
+        for (var tipoCliente : TipoCliente.values()) {
             if (codigo.equals(tipoCliente.getCodigo()))
                 return tipoCliente;
         }
-        throw new IllegalArgumentException("Código Inválido " + codigo);
+        throw new IllegalArgumentException("Código de cliente inválido " + codigo);
     }
+
 }

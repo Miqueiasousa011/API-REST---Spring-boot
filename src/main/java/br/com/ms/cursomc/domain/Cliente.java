@@ -20,7 +20,7 @@ public class Cliente implements Serializable {
     private String nome;
     private String email;
     private String cpfOuCnpj;
-    private TipoCliente tipoCliente;
+    private Integer tipoCliente;
 
     @ElementCollection
     @CollectionTable(name = ("TELEFONE"))
@@ -31,4 +31,12 @@ public class Cliente implements Serializable {
 
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
+
+    public TipoCliente getTipoCliente() {
+        return TipoCliente.toEnum(tipoCliente);
+    }
+
+    public void setTipoCliente(TipoCliente tipoCliente) {
+        this.tipoCliente = tipoCliente.getCodigo();
+    }
 }
