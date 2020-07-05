@@ -1,5 +1,6 @@
 package br.com.ms.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Estado implements Serializable {
     private Integer id;
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
 }

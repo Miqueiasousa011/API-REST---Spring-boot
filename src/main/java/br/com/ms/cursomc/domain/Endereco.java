@@ -1,5 +1,6 @@
 package br.com.ms.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Endereco implements Serializable {
     @JoinColumn(name = ("cidade_id"))
     private Cidade cidade;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = ("cliente_id"))
     private Cliente cliente;

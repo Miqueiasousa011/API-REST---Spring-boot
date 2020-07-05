@@ -1,6 +1,7 @@
 package br.com.ms.cursomc.domain;
 
 import br.com.ms.cursomc.domain.enums.TipoCliente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
 
